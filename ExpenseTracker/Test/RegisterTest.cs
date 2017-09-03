@@ -52,7 +52,7 @@ namespace ExpenseTracker.Test
                 ConfigurationManager.AppSettings["password"]);
 
             //Assert
-            application.LoggedUser.Text.Should().Be("Tarik");
+            application.LoggedUser.Text.Should().Be(ConfigurationManager.AppSettings["user"]);
         }
         #endregion
 
@@ -60,7 +60,7 @@ namespace ExpenseTracker.Test
         [TearDown]
         public void TearDownTest()
         {
-            //this.Driver.Quit();
+            this.Driver.Quit();
         }
         #endregion
     }

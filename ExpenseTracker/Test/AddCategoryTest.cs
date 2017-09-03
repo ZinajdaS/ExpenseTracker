@@ -16,7 +16,6 @@ namespace ExpenseTracker.Test
     class AddCategoryTest
     {
         #region Initialize
-
         public IWebDriver Driver { get; set; }
         ChromeOptions options = new ChromeOptions();
 
@@ -56,13 +55,17 @@ namespace ExpenseTracker.Test
             application
                 .AddCategory();
 
-
             //Assert
             application.CategoryListItem.Text.Should().Be("Food");
         }
         #endregion
 
         #region TearDown
+        [TearDown]
+        public void TearDownTest()
+        {
+            this.Driver.Quit();
+        }
         #endregion
     }
 }

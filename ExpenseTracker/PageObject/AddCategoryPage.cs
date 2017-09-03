@@ -49,18 +49,14 @@ namespace ExpenseTracker.PageObject
         #endregion
 
         #region Functions
-
         public void AddCategory()
         {
             Helper helper = new Helper(this.driver);
-                     
             ListCategoryLink.Click();
-            //Helper.Wait(this.driver);
             AddCategoryLink.Click();
             CategoryName.SendKeys("Food");
             CreateCategoryBtn.Click();
-
         }
-    #endregion
-}
+        #endregion
+    }
 }

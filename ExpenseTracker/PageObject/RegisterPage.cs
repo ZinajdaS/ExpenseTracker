@@ -11,7 +11,6 @@ namespace ExpenseTracker.PageObject
     class RegisterPage
     {
         #region Initialize
-
         private readonly IWebDriver driver;
 
         public RegisterPage(IWebDriver browser)
@@ -19,11 +18,9 @@ namespace ExpenseTracker.PageObject
             this.driver = browser;
             PageFactory.InitElements(browser, this);
         }
-
         #endregion
 
         #region Elements
-
         public IWebElement RegisterLink
         {
             get { return this.driver.FindElement(By.XPath("//*[contains(text(),'Register new user')]")); }
@@ -34,34 +31,28 @@ namespace ExpenseTracker.PageObject
             get { return driver.FindElement(By.Id("login")); }
         }
 
-
         public IWebElement Password
         {
             get { return driver.FindElement(By.Id("password1")); }
-
         }
 
         public IWebElement RepeatPassword
         {
             get { return driver.FindElement(By.Id("password2")); }
-
         }
 
         public IWebElement RegisterButton
         {
             get { return driver.FindElement(By.Id("submit")); }
-
         }
 
         public IWebElement LoggedUser
         {
             get { return driver.FindElement(By.Id("editaccount")); }
         }
-
         #endregion
 
         #region Functions
-
         public void Register(string user, string password, string repeatPassword)
         {
             Helper helper = new Helper(this.driver);
@@ -73,7 +64,6 @@ namespace ExpenseTracker.PageObject
             RepeatPassword.SendKeys(repeatPassword);
             RegisterButton.Click();
         }
-
         #endregion
     }
 }

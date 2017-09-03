@@ -16,7 +16,6 @@ namespace ExpenseTracker.Test
     class LoginTest
     {
         #region Initialize
-
         public IWebDriver Driver { get; set; }
         ChromeOptions options = new ChromeOptions();
 
@@ -37,7 +36,6 @@ namespace ExpenseTracker.Test
         {
 
         }
-
         #endregion
 
         #region Tests
@@ -53,7 +51,7 @@ namespace ExpenseTracker.Test
                 ConfigurationManager.AppSettings["password"]);
 
             //Assert
-            application.LoggedUser.Text.Should().Be("Tarik");
+            application.LoggedUser.Text.Should().Be(ConfigurationManager.AppSettings["user"]);
         }
         #endregion
 

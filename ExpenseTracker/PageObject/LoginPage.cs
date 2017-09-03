@@ -21,30 +21,25 @@ namespace ExpenseTracker.PageObject
         #endregion
 
         #region Elements
-
         public IWebElement Username
         {
             get { return driver.FindElement(By.Id("login")); }
         }
 
-
         public IWebElement Password
         {
             get { return driver.FindElement(By.Id("password")); }
-
         }
 
         public IWebElement LoginButton
         {
             get { return driver.FindElement(By.Id("submit")); }
-
         }
 
         public IWebElement LoggedUser
         {
             get { return driver.FindElement(By.Id("editaccount")); }
         }
-
         #endregion
 
         #region Functions

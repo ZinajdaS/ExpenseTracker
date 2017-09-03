@@ -22,7 +22,6 @@ namespace ExpenseTracker.PageObject
         #endregion
 
         #region Elements
-
         public IWebElement AddExpenseLink
         {
             get { return driver.FindElement(By.Id("go_add_expense")); }
@@ -62,10 +61,14 @@ namespace ExpenseTracker.PageObject
         {
             get { return driver.FindElement(By.Id("submit")); }
         }
+
+        public IWebElement CategoryListItem
+        {
+            get { return this.driver.FindElement(By.XPath("//*[contains(text(),'Food')]")); }
+        }
         #endregion
 
         #region Functions
-
         public void AddExpense()
         {
             AddExpenseLink.Click();
@@ -74,7 +77,6 @@ namespace ExpenseTracker.PageObject
             Month.SendKeys("12");
             Year.Clear();
             Year.SendKeys("2015");
-            
             SelectElement selector = new SelectElement(DropDownElements);
             selector.SelectByIndex(0);
             Amount.SendKeys("22");

@@ -1,4 +1,5 @@
 ﻿using ExpenseTracker.PageObject;
+using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,7 +16,6 @@ namespace ExpenseTracker.Test
     class AddExpenseTest
     {
         #region Initialize
-
         public IWebDriver Driver { get; set; }
         ChromeOptions options = new ChromeOptions();
 
@@ -58,13 +58,17 @@ namespace ExpenseTracker.Test
             application
                 .AddExpense();
 
-
             //Assert
-            // application.CategoryListItem.Text.Should().Be("Food");
+            application.CategoryListItem.Text.Should().Be("Food");
         }
         #endregion
 
         #region TearDown
+        [TearDown]
+        public void TearDownTest()
+        {
+            this.Driver.Quit();
+        }
         #endregion
     }
 }
